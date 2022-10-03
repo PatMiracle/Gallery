@@ -1,0 +1,165 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    padding: 5rem 0;
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .section {
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 95vw;
+    }
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, .1);
+    height: 15rem;
+}
+
+.img:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, .4);
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transition: all 0.5s ease;
+    opacity: 0;
+    min-height: 100vh;
+    overflow: scroll;
+}
+
+.modal.open {
+    opacity: 1;
+    z-index: 1;
+}
+
+button {
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background: transparent;
+    border-color: transparent;
+}
+
+.next-btn,
+.prev-btn {
+    position: absolute;
+    top: 20rem;
+    transform: translateX(-50%);
+    background: transparent;
+    font-size: 1.6rem;
+    color: #fff;
+    border-color: transparent;
+}
+
+.prev-btn {
+    left: -0.9rem;
+}
+
+.next-btn {
+    right: -2rem;
+}
+
+@media screen and (min-width: 768px) {
+    .close-btn {
+        font-size: 3rem;
+    }
+
+    .next-btn,
+    .prev-btn {
+        font-size: 2.5rem;
+    }
+
+    .prev-btn {
+        left: -2.5rem;
+    }
+
+    .next-btn {
+        right: -3.9rem;
+    }
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 9rem;
+    position: relative;
+}
+
+.main-img {
+    width: 100%;
+    aspect-ratio:  2 / 3;
+    object-fit: cover;
+    border-radius: 0.4rem;
+    max-height: 45rem;
+}
+@media screen and (max-width:600px) {
+    .prev-btn,.next-btn{
+        top: 12rem;
+    }
+    .main-img{
+        max-height: 24rem;
+
+    }
+}
+.image-name {
+    text-align: center;
+    margin: 1rem 0 3rem;
+    color: #fff;
+    font-family: "franklin gothic book";
+    letter-spacing: 2px;
+    text-transform: capitalize
+}
+
+.modal-images {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.modal-img {
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.modal-img:hover, .modal-img.selected {
+    opacity: 1;
+}
